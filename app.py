@@ -7,7 +7,7 @@ st.set_page_config(page_title="Supply Chain Command Center", layout="wide")
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv('Dashboard_Ready_Car_Data.csv')
+    df = pd.read_csv('cleaned_car_data.csv')
     df['OrderDate'] = pd.to_datetime(df['OrderDate'])
     return df
 
