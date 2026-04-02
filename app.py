@@ -1,6 +1,17 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import os
+
+@st.cache_data
+def load_data():
+    # This finds the directory the app.py is currently in
+    base_path = os.path.dirname(__file__)
+    file_path = os.path.join(base_path, 'Dashboard_Ready_Car_Data.csv')
+    
+    df = pd.read_csv(file_path)
+    df['OrderDate'] = pd.to_datetime(df['OrderDate'])
+    return df
 
 # --- PAGE SETUP ---
 st.set_page_config(page_title="Supply Chain Command Center", layout="wide")
