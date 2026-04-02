@@ -103,7 +103,7 @@ with col_feedback:
 # --- ROW 5: TREND ---
 st.divider()
 st.subheader("📈 Monthly Revenue Performance")
-trend = filtered_df.resample('M', on='OrderDate')['Calculated_Total'].sum().reset_index()
+trend = filtered_df.resample('Me', on='OrderDate')['Calculated_Total'].sum().reset_index()
 st.line_chart(trend.set_index('OrderDate'))
 
 # --- EXECUTIVE SUMMARY ---
